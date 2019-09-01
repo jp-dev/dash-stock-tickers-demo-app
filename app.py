@@ -8,6 +8,7 @@ import flask
 import os
 import pandas as pd
 import time
+import base64
 
 app = dash.Dash(
     __name__, 
@@ -18,6 +19,9 @@ server = app.server
 
 app.scripts.config.serve_locally = False
 
+# Read in logo file using base64
+image_filename = 'img/refinitiv_logo.jpg' # replace with your own image
+encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 
 colorscale = cl.scales['9']['qual']['Paired']
 
@@ -36,7 +40,8 @@ app.layout = html.Div([
                        'margin-top': '20px',
                        'margin-bottom': '0'
                        }),
-        html.Img(src="https://s3-us-west-1.amazonaws.com/plotly-tutorials/logo/new-branding/dash-logo-by-plotly-stripe.png",
+        # html.Img(src="https://s3-us-west-1.amazonaws.com/plotly-tutorials/logo/new-branding/dash-logo-by-plotly-stripe.png",
+        html.Img(src='data:image/jpg;base64,{}'.format(encoded_image.decode()),
                 style={
                     'height': '100px',
                     'float': 'right'
