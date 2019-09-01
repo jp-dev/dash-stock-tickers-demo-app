@@ -20,7 +20,7 @@ server = app.server
 app.scripts.config.serve_locally = False
 
 # Read in logo file using base64
-image_filename = 'img/refinitiv_logo.jpg' # replace with your own image
+image_filename = 'img/logo.jpg' # replace with your own image
 encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 
 colorscale = cl.scales['9']['qual']['Paired']
