@@ -11,7 +11,8 @@ import time
 
 app = dash.Dash(
     __name__, 
-    assets_external_scripts='https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
+    # assets_external_scripts='https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
+    assets_external_path='https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
 )
 server = app.server
 
